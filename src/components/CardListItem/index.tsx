@@ -20,7 +20,7 @@ export function CardListItem(props: ICardListItemProps) {
           setIsCopied(true);
         }
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     })();
   }, []);
@@ -34,7 +34,10 @@ export function CardListItem(props: ICardListItemProps) {
       setIsCopied(true);
     } catch (err) {
       setIsCopied(false);
-      console.log(err);
+      console.error(err);
+      toast.error('unfortunately we were not able to copy the text😥', {
+        theme: 'dark',
+      });
     }
   }
 
