@@ -11,12 +11,14 @@ specifiers:
   styled-components: ^5.3.6
   typescript: ^4.9.3
   vite: ^4.1.0
+  wretch: ^2.5.0
 
 dependencies:
   polished: 4.2.2
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   styled-components: 5.3.6_biqbaboplfbrettd7655fr4n2y
+  wretch: 2.5.0
 
 devDependencies:
   '@types/react': 18.0.28
@@ -1004,6 +1006,11 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /wretch/2.5.0:
+    resolution: {integrity: sha512-0R9Ig+dJ2eOrYNJJlbJP6crQfVujbscrEo4idKgCHdhDvZtY6ma9L4FKyiHUKnAV6tU3XpOls6cgXlVSJn6VTg==}
+    engines: {node: '>=14'}
+    dev: false
 
   /yallist/3.1.1:
     resolution: {integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==}
