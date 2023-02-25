@@ -3,10 +3,10 @@ import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { useAtom } from 'jotai';
 
 import { passwordsAtom } from '../../atoms/passwords';
-
-import { Container, Card, Col, ListContainer } from './styles';
 import { CardListItem } from '../../components/CardListItem';
 import { FormNewPass } from '../../components/FormNewPass';
+
+import { Container, Card, Col, ListContainer } from './styles';
 
 export function Home() {
   const formId = useId();
