@@ -6,6 +6,7 @@ export const Container = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 22px;
 
   button {
     color: ${({ theme }) => theme.colors.green};
@@ -21,5 +22,19 @@ export const Container = styled.li`
   }
   > svg {
     color: ${({ theme }) => darken(0.1, theme.colors.green)};
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    max-width: 100%;
+
+    span {
+      width: 250px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 `;

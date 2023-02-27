@@ -8,7 +8,16 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 22px;
+
+  @media screen and (max-width: 1100px) {
+    flex-direction: column;
+    align-items: none;
+  }
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const Card = styled.div`
@@ -46,6 +55,10 @@ export const Card = styled.div`
     &:hover {
       background: ${({ theme }) => darken(0.1, theme.colors.green)};
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    min-width: 100%;
   }
 `;
 

@@ -5,6 +5,7 @@ import { useAtom } from 'jotai';
 import { passwordsAtom } from '../../atoms/passwords';
 
 import { Col, Container, HStackBetween, Range } from './styles';
+import { loadingAtom } from '../../atoms/loading';
 
 type StatePasswordProps = {
   id: string;
@@ -24,27 +25,32 @@ export function FormNewPass(props: IFormNewPassProps) {
   const [inputRangeValue, setInputRangeValue] = useState(1);
   const inputTextRef = useRef<HTMLInputElement>(null);
   const [, setPasswords] = useAtom(passwordsAtom);
+  const [, setIsLoading] = useAtom(loadingAtom);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-
+    setIsLoading(true);
     if (inputTextRef.current && inputTextRef.current.value) {
-      const json: { pass: StatePasswordProps } = await api
-        .url('/passwords/create')
+      const json: { pass: string } = await api
+        .url('/hash')
         .post({ pass: inputTextRef.current.value })
         .json();
       setPasswords([json.pass]);
       setInputRangeValue(1);
+      inputTextRef.current.value = '';
+      setIsLoading(false);
       return;
     }
 
-    const json: { passwords: StatePasswordProps[] } = await api
-      .url(`/passwords/batch?limit=${inputRangeValue}`)
+    const json: { passwords: string[] } = await api
+      .url(`/hash?limit=${inputRangeValue}`)
       .get()
       .json();
+
     setPasswords([...json.passwords]);
 
     setInputRangeValue(1);
+    setIsLoading(false);
   }
 
   return (
