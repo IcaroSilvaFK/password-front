@@ -7,12 +7,7 @@ import { passwordsAtom } from '../../atoms/passwords';
 import { Col, Container, HStackBetween, Range } from './styles';
 import { loadingAtom } from '../../atoms/loading';
 
-type StatePasswordProps = {
-  id: string;
-  pass: string;
-};
-
-const api = wretch('http://localhost:8080/api/_v1');
+const api = wretch(import.meta.env.VITE_PUBLIC_API_URL);
 
 interface IFormNewPassProps {
   formId: string;

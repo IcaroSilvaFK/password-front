@@ -29,7 +29,9 @@ export function Home() {
         <h1>Generated Passwords</h1>
         <Card>
           <ListContainer ref={listContainerRef}>
-            {!passwords.length && <span>Generate passwords!</span>}
+            {!isLoading && !passwords.length && (
+              <span>Generate passwords!</span>
+            )}
             {isLoading && <span>Generating passwords...</span>}
             {!isLoading &&
               passwords.map((pass) => <CardListItem key={pass} pass={pass} />)}
